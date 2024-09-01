@@ -11,6 +11,10 @@ const config: Config = {
       fontFamily: {
         grand: ['Grand Hotel', 'cursive'],
       },
+      colors: {
+        heading: '#FF2157',
+        subHeading: '#A5455C',
+      },
     },
   },
   plugins: [],
