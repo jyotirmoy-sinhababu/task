@@ -1,9 +1,13 @@
-import LandingPage from './pages/LandingPage/LandingPage';
+// import LandingPage from './pages/LandingPage/LandingPage';
+// import Authentication from './pages/auth/Authentication';
+import UserForm from './commponents/userForm/UserForm';
 
 export default function Home() {
   return (
     <main>
-      <LandingPage />
+      {/* <LandingPage /> */}
+      {/* <Authentication /> */}
+      <UserForm />
     </main>
   );
 }
