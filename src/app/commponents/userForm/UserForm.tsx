@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { Mistral } from '@mistralai/mistralai';
 
+import { Grand_Hotel } from 'next/font/google';
+const grandHotel = Grand_Hotel({ weight: '400', subsets: ['latin'] });
+
 import vector from '../../../../public/Vector.png';
 import Image from 'next/image';
 
@@ -23,7 +26,7 @@ const UserForm = () => {
       console.error('Error: Both prompts are required');
       return;
     }
-    const chatResponse = await client.chat.complete({
+    const chatResponse: any = await client.chat.complete({
       model: 'mistral-large-latest',
       messages: [
         { role: 'user', content: prompts.prompt1 },
@@ -35,20 +38,22 @@ const UserForm = () => {
   };
   console.log(output);
   return (
-    <div className={`bg-[url('/main.png')] bg-no-repeat bg-cover`}>
+    <div
+      className={`bg-[url('/main.png')] bg-no-repeat bg-cover ${grandHotel.className}`}
+    >
       <div className={`h-screen  bg-[rgba(255,255,255,0.8)]  `}>
-        <div className='flex justify-between items-center pb-8 pt-14 mr-[4%]'>
+        <div className='flex justify-between items-center pb-8 pt-20 mx-[8%]'>
           <div></div>
-          <h1 className='text-heading 2xl:text-5xl lg:text-4xl'>
+          <h1 className='text-heading 2xl:text-[78px] lg:text-4xl'>
             Pickup line Generator
           </h1>
-          <button className='border-2 2xl:text-2xl lg:text-xl  px-6 py-1 text-[#B5002C] bg-[#e5d4db] rounded-full'>
+          <button className='border-2 2xl:text-2xl lg:text-xl  px-6 py-1 text-[#B5002C] bg-[#e5d4db] rounded-full h-[67px] w-[151px]'>
             Signout
           </button>
         </div>
-        <form className='flex flex-col justify-center mt-[6%] lg:w-[50vw] 2xl:w-[40vw] w-full lg:p-5 p-4 mx-auto'>
+        <form className='flex flex-col justify-center mt-[4%] lg:w-[50vw] 2xl:w-[40vw] w-full lg:p-5 p-4 mx-auto'>
           <label
-            className='text-subHeading 2xl:text-xl text-left lg:text-lg mb-3'
+            className='text-subHeading 2xl:text-4xl text-left lg:text-lg mb-3'
             htmlFor='text '
           >
             Tell us about your crush
@@ -63,7 +68,7 @@ const UserForm = () => {
           />
 
           <label
-            className='text-subHeading 2xl:text-xl text-left lg:text-lg mb-3'
+            className='text-subHeading 2xl:text-4xl text-left lg:text-lg mb-3'
             htmlFor='style '
           >
             Style
@@ -82,7 +87,7 @@ const UserForm = () => {
               e.preventDefault();
               generateOutput(prompts);
             }}
-            className='flex justify-center gap-2 items-center my-4 2xl:my-8 lg:my-6 bg-[#FF2157] text-subHeading text-2xl text-white h-[57px] rounded-[56px]'
+            className='flex justify-center gap-2 items-center my-5 2xl:my-8 lg:my-6 bg-[#FF2157] text-subHeading text-2xl text-white h-[67px] rounded-[56px]'
           >
             <Image src={vector} alt='Button Image' />
             Generate for me
