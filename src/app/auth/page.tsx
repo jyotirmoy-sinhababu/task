@@ -19,6 +19,7 @@ const grandHotel = Grand_Hotel({ weight: '400', subsets: ['latin'] });
 
 const Authentication = () => {
   const router = useRouter();
+
   const loginFunct = async () => {
     const provider = await new GoogleAuthProvider();
     return signInWithPopup(auth, provider).then((res: any) => {

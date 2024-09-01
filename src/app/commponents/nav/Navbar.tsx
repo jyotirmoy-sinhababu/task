@@ -6,8 +6,12 @@ const Navbar = () => {
   return (
     <div className='flex justify-center items-center h-[30%]'>
       <div className=''>
-        <p className={grandHotel.className}>Pickup line </p>
-        <p className={grandHotel.className}>Generator</p>
+        <p className={`text-[#FFFFFF] text-[54px] ${grandHotel.className}`}>
+          Pickup line{' '}
+        </p>
+        <p className={`text-[#FFFFFF] text-[54px] ${grandHotel.className}`}>
+          Generator
+        </p>
       </div>
     </div>
   );
