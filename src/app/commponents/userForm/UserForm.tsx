@@ -24,9 +24,8 @@ const UserForm = () => {
   });
   let [output, setOutput] = useState<any>();
 
-  const apiKey = 'ZDQbEsE3IeHlaHo8HKPbWDDRAwgyDKM4';
+  const apiKey = 'DGVCIZPB9A1Fu3yArkRlD0uu53EvwC6P';
   const client = new Mistral({ apiKey: apiKey });
-
   const router = useRouter();
 
   // generate prompt using AI
