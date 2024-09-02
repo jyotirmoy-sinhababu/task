@@ -30,7 +30,7 @@ const Authentication = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center h-[100vh] '>
+    <div className='flex flex-col justify-center items-center h-[100vh] m-2'>
       <Image src={audionotes} alt='logo' />
       <p className='text-[#212121] font-semibold text-2xl mt-[4%]'>
         Pickup line generator
@@ -40,13 +40,15 @@ const Authentication = () => {
       </p>
       <button
         onClick={loginFunct}
-        className='flex justify-center items-center h-[57px] w-[394px] mt-[24px] text-[#212121] font-semibold text-xl gap-2 bg-gray-200 rounded-[52px]'
+        className='flex justify-center items-center h-[57px] w-72 mt-[24px] text-[#212121] font-semibold text-xl gap-2 bg-gray-200 rounded-[52px]'
       >
         <Image className='w-[24px]' src={google} alt='google icon' /> Sign up
         with google
       </button>
       <div className='mt-[12%]'>
-        <p>By signing up, you agree of the Terms of Use, Privacy Notice</p>
+        <p className='text-center font-medium text-gray-600'>
+          By signing up, you agree of the Terms of Use, Privacy Notice
+        </p>
       </div>
     </div>
   );

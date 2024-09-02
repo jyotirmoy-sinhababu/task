@@ -29,6 +29,8 @@ const UserForm = () => {
 
   const router = useRouter();
 
+  // generate prompt using AI
+
   const generateOutput = async ({ param }: any) => {
     if (!prompts.prompt1 || !prompts.prompt2) {
       console.error('Error: Both prompts are required');
@@ -44,15 +46,8 @@ const UserForm = () => {
 
     setOutput(chatResponse.choices[0].message.content);
   };
-  console.log(output);
 
-  const copyFunction = async ({ text }: any) => {
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // signout function
 
   const signOutFunction = () => {
     signOut(auth).then(() => {
@@ -61,19 +56,29 @@ const UserForm = () => {
     });
   };
 
+  // copy the generated prompt
+
+  const copyFunction = async () => {
+    try {
+      await navigator.clipboard.writeText(output);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div
       className={`bg-[url('/main.png')] bg-no-repeat bg-cover ${grandHotel.className}`}
     >
       <div className={`h-screen  bg-[rgba(255,255,255,0.8)]  `}>
-        <div className='flex justify-between items-center pb-8 pt-20 mx-[8%]'>
-          <div></div>
-          <h1 className='text-heading 2xl:text-[78px] lg:text-4xl'>
+        <div className='flex justify-between items-center pb-8 pt-20 2xl:mx-[8%] mx-[2%]'>
+          <div className='sm:block hidden'></div>
+          <h1 className='text-heading 2xl:text-[78px] lg:text-4xl text-2xl'>
             Pickup line Generator
           </h1>
           <button
             onClick={signOutFunction}
-            className='border-2 2xl:text-2xl lg:text-xl  px-6 py-1 text-[#B5002C] hover:bg-[#e9a3c0] bg-[#e5d4db] rounded-full h-[67px] w-[151px]'
+            className='border-2 2xl:text-2xl lg:text-xl  px-6 py-1 text-[#B5002C] hover:bg-[#e9a3c0] bg-[#e5d4db] rounded-full 2xl:h-16 h-13 w-[151px]'
           >
             Signout
           </button>
@@ -84,18 +89,18 @@ const UserForm = () => {
               <p className='text-[#A5455C] text-xl'>
                 Copy the below pick up lines
               </p>
-              <div className='mt-[11%] lg:w-[50vw] 2xl:w-[40vw] rounded border-2 border-[#FF6A8E] p-[2%] 2xl:h-60 lg:h-24'>
+              <div className='mt-[11%] lg:w-[50vw] 2xl:w-[40vw] rounded border-2 border-[#FF6A8E] p-[2%] 2xl:h-60 lg:h-24 overflow-scroll m-2 sm:m-0'>
                 <div className='flex justify-between  text-2xl  p-[2%]'>
                   <p className='text-[#B5002C] '>Pickup lines </p>
                   <button
                     onClick={() => {
-                      copyFunction(output);
+                      copyFunction();
                     }}
                   >
                     <RiFileCopyLine className='text-[#FF6A8E]' />
                   </button>
                 </div>
-                <div>
+                <div className=''>
                   <p className='text-[#FF6A8E] text-xl'>{output}</p>
                 </div>
               </div>
